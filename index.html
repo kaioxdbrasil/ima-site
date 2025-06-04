@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMA - Instituto Marcosul Amazônia</title>
+    <!-- Link para o CDN do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind para usar a fonte Inter e cores personalizadas -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Adicionado modo escuro
+            theme: {
+                extend: {
+                    colors: {
+                        // Cores primárias do Flowbite
+                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"},
+                        // Suas cores personalizadas do IMA
+                        'ima-green-dark': '#1E3A24',
+                        'ima-green-light': '#4CAF50',
+                        'ima-gray': '#F5F5F5',
+                        'ima-text-gray': '#4B5563',
+                    }
+                },
+                fontFamily: {
+                    // Definições de fonte do Flowbite
+                    'body': [
+                        'Inter',
+                        'ui-sans-serif',
+                        'system-ui',
+                        '-apple-system',
+                        'system-ui',
+                        'Segoe UI',
+                        'Roboto',
+                        'Helvetica Neue',
+                        'Arial',
+                        'Noto Sans',
+                        'sans-serif',
+                        'Apple Color Emoji',
+                        'Segoe UI Emoji',
+                        'Segoe UI Symbol',
+                        'Noto Color Emoji'
+                    ],
+                    'sans': [
+                        'Inter',
+                        'ui-sans-serif',
+                        'system-ui',
+                        '-apple-system',
+                        'system-ui',
+                        'Segoe UI',
+                        'Roboto',
+                        'Helvetica Neue',
+                        'Arial',
+                        'Noto Sans',
+                        'sans-serif',
+                        'Apple Color Emoji',
+                        'Segoe UI Emoji',
+                        'Segoe UI Symbol',
+                        'Noto Color Emoji'
+                    ]
+                }
+            }
+        }
+    </script>
+    <!-- Link para o arquivo de estilo externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-inter text-ima-text-gray">
+
+    <!-- Novo Cabeçalho (Header) - Adaptado do Flowbite e Responsivo -->
+    <header>
+        <nav class="bg-white border-gray-200 py-2.5 px-10 sm:px-16 lg:px-24">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                <!-- Logo do IMA -->
+                <a href="#" class="flex items-center">
+                    <span class="text-ima-green-dark text-3xl font-bold">IMA</span>
+                </a>
+                
+                <!-- Botão Fale Conosco e Toggle do Menu Mobile -->
+                <div class="flex items-center lg:order-2">
+                    <button class="bg-ima-green-light text-white px-6 py-2 rounded-md font-semibold hover:bg-ima-green-dark transition-colors duration-200 shadow-md mr-4 hidden lg:block">Fale Conosco</button>
+                    
+                    <!-- Botão de Toggle do Menu Mobile (Hamburguer) -->
+                    <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <!-- Ícone de hamburguer -->
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                        <!-- Ícone de fechar (inicialmente escondido) -->
+                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+                
+                <!-- Menu de Navegação Principal (escondido em mobile por padrão, visível em lg) -->
+                <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <li>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-ima-green-dark rounded lg:bg-transparent lg:text-ima-green-dark lg:p-0" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="historia.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Nossa história</a>
+                        </li>
+                        <li>
+                            <a href="time.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Nossa Equipe</a>
+                        </li>
+                        <li>
+                            <a href="projetos.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Projetos</a>
+                        </li>
+                        <li>
+                            <a href="formularios.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Formulários</a>
+                        </li>
+                        <!-- Botão Fale Conosco para o menu mobile (visível apenas em telas menores) -->
+                        <li>
+                            <button class="bg-ima-green-light text-white px-6 py-2 rounded-md font-semibold hover:bg-ima-green-dark transition-colors duration-200 shadow-md mt-4 lg:hidden w-full">Fale Conosco</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Principal (Hero Section) - Novo Banner Adaptado -->
+    <section class="relative bg-cover bg-center min-h-[400px] md:min-h-[600px] flex items-center justify-center text-center p-6"
+        style="background-image: url('https://placehold.co/1920x600/000000/FFFFFF?text=Imagem+da+Amaz%C3%B4nia');">
+        <!-- Overlay escuro para melhor legibilidade do texto -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 mx-auto max-w-prose text-white px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+            <h1 class="text-4xl font-bold text-white sm:text-5xl">
+                Transformando a Amazônia
+                <strong class="text-ima-green-light"> com Empreendedorismo e Inovação </strong>
+            </h1>
+
+            <p class="mt-4 text-base text-pretty text-white sm:text-lg/relaxed opacity-90">
+                Impulsionando o empreendedorismo para transformar a Amazônia em uma região de oportunidades sustentáveis, conectando pessoas, negócios e soluções.
+            </p>
+
+            <div class="mt-4 flex justify-center sm:mt-6">
+                <a href="historia.html"><button class="bg-ima-green-light text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-ima-green-dark transition-colors duration-200 shadow-lg">
+                    Saiba Mais
+                </button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== Services Section Start -->
+    <section class="overflow-hidden bg-white py-16 lg:py-24 px-10 sm:px-16 lg:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="-mx-4 flex flex-wrap items-center justify-between">
+                <div class="w-full px-4 lg:w-6/12">
+                    <div class="-mx-3 flex items-center sm:-mx-4">
+                        <div class="w-full px-3 sm:px-4 xl:w-1/2">
+                            <div class="py-3 sm:py-4">
+                                <img src="https://placehold.co/300x200/F0F0F0/000000?text=Imagem+Servi%C3%A7o+1" alt="Imagem Serviço 1"
+                                    class="w-full rounded-2xl" />
+                            </div>
+                            <div class="py-3 sm:py-4">
+                                <img src="https://placehold.co/300x200/F0F0F0/000000?text=Imagem+Servi%C3%A7o+2" alt="Imagem Serviço 2"
+                                    class="w-full rounded-2xl" />
+                            </div>
+                        </div>
+                        <div class="w-full px-3 sm:px-4 xl:w-1/2">
+                            <div class="relative z-10 my-4">
+                                <img src="https://placehold.co/300x400/F0F0F0/000000?text=Imagem+Servi%C3%A7o+3" alt="Imagem Serviço 3"
+                                    class="w-full rounded-2xl" />
+                                <span class="absolute -bottom-7 -right-7 z-[-1]">
+                                    <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="1.66667" cy="104" r="1.66667" transform="rotate(-90 1.66667 104)" fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="104" r="1.66667" transform="rotate(-90 16.3333 104)" fill="#4CAF50" />
+                                        <circle cx="31" cy="104" r="1.66667" transform="rotate(-90 31 104)" fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="104" r="1.66667" transform="rotate(-90 45.6667 104)" fill="#4CAF50" />
+                                        <circle cx="60.3334" cy="104" r="1.66667" transform="rotate(-90 60.3334 104)" fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="104" r="1.66667" transform="rotate(-90 88.6667 104)" fill="#4CAF50" />
+                                        <circle cx="117.667" cy="104" r="1.66667" transform="rotate(-90 117.667 104)" fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="104" r="1.66667" transform="rotate(-90 74.6667 104)" fill="#4CAF50" />
+                                        <circle cx="103" cy="104" r="1.66667" transform="rotate(-90 103 104)" fill="#4CAF50" />
+                                        <circle cx="132" cy="104" r="1.66667" transform="rotate(-90 132 104)" fill="#4CAF50" />
+                                        <circle cx="1.66667" cy="89.3333" r="1.66667" transform="rotate(-90 1.66667 89.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="89.3333" r="1.66667" transform="rotate(-90 16.3333 89.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="31" cy="89.3333" r="1.66667" transform="rotate(-90 31 89.3333)" fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="89.3333" r="1.66667" transform="rotate(-90 45.6667 89.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="60.3333" cy="89.3338" r="1.66667" transform="rotate(-90 60.3333 89.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="89.3338" r="1.66667" transform="rotate(-90 88.6667 89.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="117.667" cy="89.3338" r="1.66667" transform="rotate(-90 117.667 89.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="89.3338" r="1.66667" transform="rotate(-90 74.6667 89.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="103" cy="89.3338" r="1.66667" transform="rotate(-90 103 89.3338)" fill="#4CAF50" />
+                                        <circle cx="132" cy="89.3338" r="1.66667" transform="rotate(-90 132 89.3338)" fill="#4CAF50" />
+                                        <circle cx="1.66667" cy="74.6673" r="1.66667" transform="rotate(-90 1.66667 74.6673)"
+                                            fill="#4CAF50" />
+                                        <circle cx="1.66667" cy="31.0003" r="1.66667" transform="rotate(-90 1.66667 31.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="74.6668" r="1.66667" transform="rotate(-90 16.3333 74.6668)"
+                                            fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="31.0003" r="1.66667" transform="rotate(-90 16.3333 31.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="31" cy="74.6668" r="1.66667" transform="rotate(-90 31 74.6668)" fill="#4CAF50" />
+                                        <circle cx="31" cy="31.0003" r="1.66667" transform="rotate(-90 31 31.0003)" fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="74.6668" r="1.66667" transform="rotate(-90 45.6667 74.6668)"
+                                            fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="31.0003" r="1.66667" transform="rotate(-90 45.6667 31.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="60.3333" cy="74.6668" r="1.66667" transform="rotate(-90 60.3333 74.6668)"
+                                            fill="#4CAF50" />
+                                        <circle cx="60.3333" cy="30.9998" r="1.66667" transform="rotate(-90 60.3333 30.9998)"
+                                            fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="74.6668" r="1.66667" transform="rotate(-90 88.6667 74.6668)"
+                                            fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="30.9998" r="1.66667" transform="rotate(-90 88.6667 30.9998)"
+                                            fill="#4CAF50" />
+                                        <circle cx="117.667" cy="74.6668" r="1.66667" transform="rotate(-90 117.667 74.6668)"
+                                            fill="#4CAF50" />
+                                        <circle cx="117.667" cy="30.9998" r="1.66667" transform="rotate(-90 117.667 30.9998)"
+                                            fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="74.6668" r="1.66667" transform="rotate(-90 74.6667 74.6668)"
+                                            fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="30.9998" r="1.66667" transform="rotate(-90 74.6667 30.9998)"
+                                            fill="#4CAF50" />
+                                        <circle cx="103" cy="74.6668" r="1.66667" transform="rotate(-90 103 74.6668)" fill="#4CAF50" />
+                                        <circle cx="103" cy="30.9998" r="1.66667" transform="rotate(-90 103 30.9998)" fill="#4CAF50" />
+                                        <circle cx="132" cy="74.6668" r="1.66667" transform="rotate(-90 132 74.6668)" fill="#4CAF50" />
+                                        <circle cx="132" cy="30.9998" r="1.66667" transform="rotate(-90 132 30.9998)" fill="#4CAF50" />
+                                        <circle cx="1.66667" cy="60.0003" r="1.66667" transform="rotate(-90 1.66667 60.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="1.66667" cy="16.3333" r="1.66667" transform="rotate(-90 1.66667 16.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="60.0003" r="1.66667" transform="rotate(-90 16.3333 60.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="16.3333" r="1.66667" transform="rotate(-90 16.3333 16.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="31" cy="60.0003" r="1.66667" transform="rotate(-90 31 60.0003)" fill="#4CAF50" />
+                                        <circle cx="31" cy="16.3333" r="1.66667" transform="rotate(-90 31 16.3333)" fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="60.0003" r="1.66667" transform="rotate(-90 45.6667 60.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="16.3333" r="1.66667" transform="rotate(-90 45.6667 16.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="60.3333" cy="60.0003" r="1.66667" transform="rotate(-90 60.3333 60.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="60.3333" cy="16.3333" r="1.66667" transform="rotate(-90 60.3333 16.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="60.0003" r="1.66667" transform="rotate(-90 88.6667 60.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="16.3333" r="1.66667" transform="rotate(-90 88.6667 16.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="117.667" cy="60.0003" r="1.66667" transform="rotate(-90 117.667 60.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="117.667" cy="16.3333" r="1.66667" transform="rotate(-90 117.667 16.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="60.0003" r="1.66667" transform="rotate(-90 74.6667 60.0003)"
+                                            fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="16.3333" r="1.66667" transform="rotate(-90 74.6667 16.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="103" cy="60.0003" r="1.66667" transform="rotate(-90 103 60.0003)" fill="#4CAF50" />
+                                        <circle cx="103" cy="16.3333" r="1.66667" transform="rotate(-90 103 16.3333)" fill="#4CAF50" />
+                                        <circle cx="132" cy="60.0003" r="1.66667" transform="rotate(-90 132 60.0003)" fill="#4CAF50" />
+                                        <circle cx="132" cy="16.3333" r="1.66667" transform="rotate(-90 132 16.3333)" fill="#4CAF50" />
+                                        <circle cx="1.66667" cy="45.3333" r="1.66667" transform="rotate(-90 1.66667 45.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="1.66667" cy="1.66683" r="1.66667" transform="rotate(-90 1.66667 1.66683)"
+                                            fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="45.3333" r="1.66667" transform="rotate(-90 16.3333 45.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="16.3333" cy="1.66683" r="1.66667" transform="rotate(-90 16.3333 1.66683)"
+                                            fill="#4CAF50" />
+                                        <circle cx="31" cy="45.3333" r="1.66667" transform="rotate(-90 31 45.3333)" fill="#4CAF50" />
+                                        <circle cx="31" cy="1.66683" r="1.66667" transform="rotate(-90 31 1.66683)" fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="45.3333" r="1.66667" transform="rotate(-90 45.6667 45.3333)"
+                                            fill="#4CAF50" />
+                                        <circle cx="45.6667" cy="1.66683" r="1.66667" transform="rotate(-90 45.6667 1.66683)"
+                                            fill="#4CAF50" />
+                                        <circle cx="60.3333" cy="45.3338" r="1.66667" transform="rotate(-90 60.3333 45.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="60.3333" cy="1.66683" r="1.66667" transform="rotate(-90 60.3333 1.66683)"
+                                            fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="45.3338" r="1.66667" transform="rotate(-90 88.6667 45.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="88.6667" cy="1.66683" r="1.66667" transform="rotate(-90 88.6667 1.66683)"
+                                            fill="#4CAF50" />
+                                        <circle cx="117.667" cy="45.3338" r="1.66667" transform="rotate(-90 117.667 45.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="117.667" cy="1.66683" r="1.66667" transform="rotate(-90 117.667 1.66683)"
+                                            fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="45.3338" r="1.66667" transform="rotate(-90 74.6667 45.3338)"
+                                            fill="#4CAF50" />
+                                        <circle cx="74.6667" cy="1.66683" r="1.66667" transform="rotate(-90 74.6667 1.66683)"
+                                            fill="#4CAF50" />
+                                        <circle cx="103" cy="45.3338" r="1.66667" transform="rotate(-90 103 45.3338)" fill="#4CAF50" />
+                                        <circle cx="103" cy="1.66683" r="1.66667" transform="rotate(-90 103 1.66683)" fill="#4CAF50" />
+                                        <circle cx="132" cy="45.3338" r="1.66667" transform="rotate(-90 132 45.3338)" fill="#4CAF50" />
+                                        <circle cx="132" cy="1.66683" r="1.66667" transform="rotate(-90 132 1.66683)" fill="#4CAF50" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
+                    <div class="mt-10 lg:mt-0">
+                        <span class="mb-4 block text-lg font-semibold text-ima-green-light">
+                            Nossos Valores
+                        </span>
+                        <h2 class="mb-5 text-3xl font-bold text-ima-green-dark sm:text-[40px]/[48px]">
+                            Transformando a Amazônia com Empreendedorismo e Inovação.
+                        </h2>
+                        <p class="mb-5 text-base text-ima-text-gray">
+                            O Instituto Marcosul Amazônia (IMA) é uma organização dedicada a impulsionar o empreendedorismo e a inovação na região amazônica. Acreditamos que, ao fortalecer negócios locais e capacitar pessoas, podemos gerar um impacto positivo e sustentável nas comunidades.
+                        </p>
+                        <p class="mb-8 text-base text-ima-text-gray">
+                            Nosso compromisso é com o desenvolvimento regional, a valorização da cultura local e a criação de oportunidades para todos, sempre com foco na sustentabilidade e na preservação ambiental.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center justify-center rounded-md border border-transparent bg-ima-green-light px-7 py-3 text-center text-base font-medium text-white hover:bg-ima-green-dark">
+                            Saiba Mais
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== Services Section End -->
+
+    <!-- Seção "O que nós fazemos?" - Responsiva -->
+    <!-- px-10 sm:px-16 lg:px-24: padding horizontal responsivo -->
+    <!-- grid grid-cols-1 md:grid-cols-3: cards em uma coluna em telas pequenas, em 3 colunas em telas médias e maiores -->
+    <section class="py-16 bg-ima-gray px-10 sm:px-16 lg:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <h2 class="text-4xl font-bold text-ima-green-dark mb-6 md:mb-0">O que nós fazemos?</h2>
+                <button class="bg-white text-ima-green-dark border border-ima-green-light px-6 py-2 rounded-md font-semibold hover:bg-ima-green-light hover:text-white transition-colors duration-200 shadow-sm">
+                    Veja Tudo
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cards individuais são responsivos por padrão dentro do grid -->
+                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x200/F0F0F0/000000?text=Imagem+Educa%C3%A7%C3%A3o" alt="Educação e Capacitação Empreendedora" class="rounded-lg mb-6 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-bold text-ima-green-dark mb-4">Educação e Capacitação Empreendedora</h3>
+                    <p class="text-ima-text-gray mb-6">
+                        Nós capacitamos empreendedores com cursos, mentorias e consultorias, fortalecendo negócios na Amazônia.
+                    </p>
+                    <a href="#" class="text-ima-green-light font-semibold hover:underline flex items-center">
+                        Saiba Mais
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x200/F0F0F0/000000?text=Imagem+Acelera%C3%A7%C3%A3o" alt="Aceleração de negócios e captação de recursos" class="rounded-lg mb-6 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-bold text-ima-green-dark mb-4">Aceleração de negócios e captação de recursos</h3>
+                    <p class="text-ima-text-gray mb-6">
+                        O IMA apoia empreendedores na aceleração de negócios e captação de recursos, oferecendo capacitação, mentorias e consultorias estratégicas.
+                    </p>
+                    <a href="#" class="text-ima-green-light font-semibold hover:underline flex items-center">
+                        Saiba Mais
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x200/F0F0F0/000000?text=Imagem+Impulso" alt="Impulsionamos empresas" class="rounded-lg mb-6 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-bold text-ima-green-dark mb-4">Impulsionamos empresas</h3>
+                    <p class="text-ima-text-gray mb-6">
+                        O IMA impulsiona empresas com aceleração de negócios, capacitação e captação de recursos.
+                    </p>
+                    <a href="#" class="text-ima-green-light font-semibold hover:underline flex items-center">
+                        Saiba Mais
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Superando Desafios, Criando Oportunidades" - Responsiva -->
+    <!-- px-10 sm:px-16 lg:px-24: padding horizontal responsivo -->
+    <!-- flex-col em telas pequenas, md:flex-row em telas médias e maiores -->
+    <!-- w-full md:w-1/2: largura responsiva para a imagem e o texto -->
+    <section class="py-16 bg-white px-10 sm:px-16 lg:px-24">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img src="https://placehold.co/500x400/F0F0F0/000000?text=Mulher+Sorrindo" alt="Mulher sorrindo" class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover">
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h2 class="text-4xl font-bold text-ima-green-dark mb-6">
+                    Superando Desafios, Criando Oportunidades
+                </h2>
+                <p class="text-ima-text-gray text-lg mb-6">
+                    Transformamos desafios em oportunidades ao promover o empreendedorismo e gerar empregos, capacitando pessoas, fortalecendo negócios e impulsionando o desenvolvimento sustentável das comunidades.
+                </p>
+                <p class="text-ima-text-gray text-lg mb-6">
+                    <span class="font-semibold text-ima-green-dark">Fomentando o Empreendedorismo:</span> Capacitamos empreendedores com ferramentas práticas, consultorias e conexões estratégicas para transformar ideias em negócios.
+                </p>
+                <p class="text-ima-text-gray text-lg mb-8">
+                    <span class="font-semibold text-ima-green-dark">Gerando Oportunidades para Todos:</span> Trabalhamos na criação de um ambiente propício para o crescimento de negócios, geração de empregos e valorização da cultura local.
+                </p>
+                <a href="#" class="text-ima-green-light font-semibold hover:underline flex items-center justify-center md:justify-start">
+                    Conheça Melhor
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== Brands Section Start -->
+    <section class="bg-white py-16 lg:py-24 px-10 sm:px-16 lg:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-ima-green-dark">Nossos Parceiros</h2>
+            </div>
+            <div class="-mx-4 flex flex-wrap">
+                <div class="w-full px-4">
+                    <div class="flex flex-wrap items-center justify-center">
+                        <a href="javascript:void(0)" class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]">
+                            <img src="https://placehold.co/150x40/F0F0F0/000000?text=Marca+1" alt="Marca 1"
+                                class="h-10 w-full" />
+                        </a>
+                        <a href="javascript:void(0)" class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]">
+                            <img src="https://placehold.co/150x40/F0F0F0/000000?text=Marca+2" alt="Marca 2"
+                                class="h-10 w-full" />
+                        </a>
+                        <a href="javascript:void(0)" class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]">
+                            <img src="https://placehold.co/150x40/F0F0F0/000000?text=Marca+3" alt="Marca 3"
+                                class="h-10 w-full" />
+                        </a>
+                        <a href="javascript:void(0)" class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]">
+                            <img src="https://placehold.co/150x40/F0F0F0/000000?text=Marca+4" alt="Marca 4"
+                                class="h-10 w-full" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== Brands Section End -->
+
+    <!-- Seção "Conheça todos os nossos projetos" - Responsiva -->
+    <!-- min-h-[250px] md:min-h-[300px]: altura mínima responsiva -->
+    <!-- text-4xl md:text-5xl: tamanho da fonte responsivo para o título -->
+    <section class="relative bg-cover bg-center min-h-[250px] md:min-h-[300px] flex items-center justify-center text-center p-6"
+        style="background-image: url('https://placehold.co/1920x300/000000/FFFFFF?text=Pessoas+Trabalhando');">
+        <!-- Overlay escuro para melhor legibilidade do texto -->
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 max-w-2xl mx-auto text-white">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                Conheça todos os nossos projetos
+            </h2>
+            <button class="bg-ima-green-light text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-ima-green-dark transition-colors duration-200 shadow-lg">
+                Conheça Os Projetos
+            </button>
+        </div>
+    </section>
+
+    <!-- Rodapé (Footer) - Responsivo -->
+    <footer class="bg-ima-green-dark text-white py-12 px-10 sm:px-16 lg:px-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <!-- Coluna 1: Logo e Descrição Curta -->
+            <div>
+                <span class="text-ima-green-light text-3xl font-bold">IMA</span>
+                <p class="mt-4 text-sm opacity-80">
+                    Impulsionando o empreendedorismo e a inovação para um futuro sustentável na Amazônia.
+                </p>
+                <!-- Social Media Icons (responsivo com flex e justify-center/md:justify-start) -->
+                <div class="mt-6 flex items-center justify-center sm:mt-8 md:justify-start">
+                    <a href="javascript:void(0)"
+                        class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white text-white hover:border-ima-green-light hover:bg-ima-green-light hover:text-white sm:mr-4 lg:mr-3 xl:mr-4">
+                        <svg width="8" height="16" viewBox="0 0 8 16" class="fill-current">
+                            <path
+                                d="M7.43902 6.4H6.19918H5.75639V5.88387V4.28387V3.76774H6.19918H7.12906C7.3726 3.76774 7.57186 3.56129 7.57186 3.25161V0.516129C7.57186 0.232258 7.39474 0 7.12906 0H5.51285C3.76379 0 2.54609 1.44516 2.54609 3.5871V5.83226V6.34839H2.10329H0.597778C0.287819 6.34839 0 6.63226 0 7.04516V8.90323C0 9.26452 0.243539 9.6 0.597778 9.6H2.05902H2.50181V10.1161V15.3032C2.50181 15.6645 2.74535 16 3.09959 16H5.18075C5.31359 16 5.42429 15.9226 5.51285 15.8194C5.60141 15.7161 5.66783 15.5355 5.66783 15.3806V10.1419V9.62581H6.13276H7.12906C7.41688 9.62581 7.63828 9.41935 7.68256 9.10968V9.08387V9.05806L7.99252 7.27742C8.01466 7.09677 7.99252 6.89032 7.85968 6.68387C7.8154 6.55484 7.61614 6.42581 7.43902 6.4Z" />
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)"
+                        class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white text-white hover:border-ima-green-light hover:bg-ima-green-light hover:text-white sm:mr-4 lg:mr-3 xl:mr-4">
+                        <svg width="16" height="12" viewBox="0 0 16 12" class="fill-current">
+                            <path
+                                d="M14.2194 2.06654L15.2 0.939335C15.4839 0.634051 15.5613 0.399217 15.5871 0.2818C14.8129 0.704501 14.0903 0.845401 13.6258 0.845401H13.4452L13.3419 0.751468C12.7226 0.258317 11.9484 0 11.1226 0C9.31613 0 7.89677 1.36204 7.89677 2.93542C7.89677 3.02935 7.89677 3.17025 7.92258 3.26419L8 3.73386L7.45806 3.71037C4.15484 3.61644 1.44516 1.03327 1.00645 0.587084C0.283871 1.76125 0.696774 2.88845 1.13548 3.59296L2.0129 4.90802L0.619355 4.20352C0.645161 5.18982 1.05806 5.96477 1.85806 6.52838L2.55484 6.99804L1.85806 7.25636C2.29677 8.45401 3.27742 8.94716 4 9.13503L4.95484 9.36986L4.05161 9.93346C2.60645 10.8728 0.8 10.8024 0 10.7319C1.62581 11.7652 3.56129 12 4.90323 12C5.90968 12 6.65806 11.9061 6.83871 11.8356C14.0645 10.2857 14.4 4.41487 14.4 3.2407V3.07632L14.5548 2.98239C15.4323 2.23092 15.7935 1.8317 16 1.59687C15.9226 1.62035 15.8194 1.66732 15.7161 1.6908L14.2194 2.06654Z" />
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)"
+                        class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white text-white hover:border-ima-green-light hover:bg-ima-green-light hover:text-white sm:mr-4 lg:mr-3 xl:mr-4">
+                        <svg width="16" height="12" viewBox="0 0 16 12" class="fill-current">
+                            <path
+                                d="M15.6645 1.88018C15.4839 1.13364 14.9419 0.552995 14.2452 0.359447C13.0065 6.59222e-08 8 0 8 0C8 0 2.99355 6.59222e-08 1.75484 0.359447C1.05806 0.552995 0.516129 1.13364 0.335484 1.88018C0 3.23502 0 6 0 6C0 6 0 8.79263 0.335484 10.1198C0.516129 10.8664 1.05806 11.447 1.75484 11.6406C2.99355 12 8 12 8 12C8 12 13.0065 12 14.2452 11.6406C14.9419 11.447 15.4839 10.8664 15.6645 10.1198C16 8.79263 16 6 16 6C16 6 16 3.23502 15.6645 1.88018ZM6.4 8.57143V3.42857L10.5548 6L6.4 8.57143Z" />
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)"
+                        class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white text-white hover:border-ima-green-light hover:bg-ima-green-light hover:text-white sm:mr-4 lg:mr-3 xl:mr-4">
+                        <svg width="14" height="14" viewBox="0 0 14 14" class="fill-current">
+                            <path
+                                d="M13.0214 0H1.02084C0.453707 0 0 0.451613 0 1.01613V12.9839C0 13.5258 0.453707 14 1.02084 14H12.976C13.5432 14 13.9969 13.5484 13.9969 12.9839V0.993548C14.0422 0.451613 13.5885 0 13.0214 0ZM4.15142 11.9H2.08705V5.23871H4.15142V11.9ZM3.10789 4.3129C2.42733 4.3129 1.90557 3.77097 1.90557 3.11613C1.90557 2.46129 2.45002 1.91935 3.10789 1.91935C3.76577 1.91935 4.31022 2.46129 4.31022 3.11613C4.31022 3.77097 3.81114 4.3129 3.10789 4.3129ZM11.9779 11.9H9.9135V8.67097C9.9135 7.90323 9.89082 6.8871 8.82461 6.8871C7.73571 6.8871 7.57691 7.74516 7.57691 8.60323V11.9H5.51254V5.23871H7.53154V6.16452H7.55423C7.84914 5.62258 8.50701 5.08065 9.52785 5.08065C11.6376 5.08065 12.0232 6.43548 12.0232 8.2871V11.9H11.9779Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="mt-8 md:mt-0">
+                <h3 class="text-lg font-semibold mb-4 text-ima-green-light">Navegação</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-white hover:text-ima-green-light transition-colors duration-200">Home</a></li>
+                    <li><a href="nossa-historia.html" class="text-white hover:text-ima-green-light transition-colors duration-200">Nossa história</a></li>
+                    <li><a href="nossa-equipe.html" class="text-white hover:text-ima-green-light transition-colors duration-200">Nossa equipe</a></li>
+                    <li><a href="projetos.html" class="text-white hover:text-ima-green-light transition-colors duration-200">Projetos</a></li>
+                    <li><a href="formularios.html" class="text-white hover:text-ima-green-light transition-colors duration-200">Formulários</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Contato -->
+            <div class="mt-8 md:mt-0">
+                <h3 class="text-lg font-semibold mb-4 text-ima-green-light">Contato</h3>
+                <p class="text-sm opacity-80">
+                    Rua Exemplo, 123 - Bairro Teste<br>
+                    Cidade, Estado - CEP 00000-000<br>
+                    Telefone: (XX) XXXX-XXXX<br>
+                    Email: contato@ima.org.br
+                </p>
+            </div>
+        </div>
+
+        <!-- Copyright e Botão Voltar ao Topo -->
+        <div class="border-t border-ima-green-light border-opacity-30 mt-12 pt-8 text-center text-sm opacity-80 relative">
+            <p>&copy; 2025 Instituto Marcosul Amazônia IMA. Todos os direitos reservados.</p>
+            <!-- Botão de voltar ao topo (posicionamento responsivo) -->
+            <button id="back-to-top" title="Voltar ao Topo" class="bg-ima-green-light text-white w-12 h-12 flex items-center justify-center rounded-full text-2xl shadow-md hover:bg-ima-green-dark transition-colors duration-200 absolute right-0 -top-10 md:static md:mt-4">↑</button>
+        </div>
+    </footer>
+
+    <!-- JavaScript para o botão de voltar ao topo e menu mobile -->
+    <script>
+        // Pega o botão de voltar ao topo
+        const backToTopButton = document.getElementById("back-to-top");
+
+        // Quando o usuário rolar 20px para baixo da parte superior do documento, mostra o botão
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "flex"; /* Mudado para flex para centralizar o conteúdo */
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        // Quando o usuário clica no botão, rola para o topo do documento
+        backToTopButton.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Rolagem suave
+            });
+        });
+
+        // Lógica para o menu mobile (botão hamburguer)
+        const mobileMenuButton = document.querySelector('[data-collapse-toggle="mobile-menu-2"]');
+        const mobileMenu = document.getElementById('mobile-menu-2');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                
+                // Alterna os ícones de hamburguer/fechar
+                const openIcon = mobileMenuButton.querySelector('svg:first-child');
+                const closeIcon = mobileMenuButton.querySelector('svg:last-child');
+                if (openIcon && closeIcon) {
+                    openIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

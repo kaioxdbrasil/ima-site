@@ -1,0 +1,24 @@
+/* style.css */
+
+/* Definição da fonte Inter para o corpo do documento, caso não seja carregada via Tailwind */
+/* Embora o Tailwind configure a fonte, é uma boa prática ter uma fallback ou para elementos não controlados pelo Tailwind */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Você pode adicionar estilos CSS personalizados aqui que não são facilmente gerenciados pelo Tailwind */
+/* Por exemplo, animações complexas, gradientes específicos, ou overrides */
+
+/* Exemplo de estilo para o botão de voltar ao topo, se necessário um ajuste fino */
+#back-to-top {
+    /* Garante que o botão esteja sempre visível e acima de outros elementos */
+    z-index: 1000; 
+}
+
+/* Estilos para o menu mobile, se houver necessidade de ajustes além do Tailwind */
+#mobile-menu-2 {
+    /* Exemplo: Ajuste de largura para o menu mobile */
+    /* width: 100%; */
+}
+
+/* Adicione mais estilos conforme a necessidade do seu projeto */
