@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMA - Nossa Equipe</title>
+    <title>IMA - Instituto Marcosul Amazônia</title>
     <!-- Link para o CDN do Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configuração do Tailwind para usar a fonte Inter e cores personalizadas -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: 'class', // Adicionado modo escuro
             theme: {
                 extend: {
                     colors: {
+                        // Cores primárias do Flowbite
                         primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"},
+                        // Suas cores personalizadas do IMA
                         'ima-green-dark': '#1E3A24',
                         'ima-green-light': '#4CAF50',
                         'ima-gray': '#F5F5F5',
@@ -21,6 +23,7 @@
                     }
                 },
                 fontFamily: {
+                    // Definições de fonte do Flowbite
                     'body': [
                         'Inter',
                         'ui-sans-serif',
@@ -64,13 +67,13 @@
 </head>
 <body class="font-inter text-ima-text-gray">
 
-    <!-- Cabeçalho (Header) - Mantido igual ao da página principal -->
+    <!-- Novo Cabeçalho (Header) - Adaptado do Flowbite e Responsivo -->
     <header>
         <nav class="bg-white border-gray-200 py-2.5 px-10 sm:px-16 lg:px-24">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                 <!-- Logo do IMA -->
-                <a href="index.html" class="flex items-center"> <!-- Link para a página principal -->
-                    <span class="text-ima-green-dark text-3xl font-bold">IMA</span>
+                <a href="index.html" class="flex items-center">
+                    <img src="src/img/IMA-LOGO.png" alt="IMA">
                 </a>
                 
                 <!-- Botão Fale Conosco e Toggle do Menu Mobile -->
@@ -114,7 +117,7 @@
             </div>
         </nav>
     </header>
-
+    
     <!-- ====== Team Section Start -->
     <section class="pb-10 pt-20 lg:pb-20 lg:pt-[120px] bg-ima-gray">
         <div class="container mx-auto">
