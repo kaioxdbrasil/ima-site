@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMA - Agregador de Formulários</title>
+    <title>IMA - Instituto Marcosul Amazônia</title>
     <!-- Link para o CDN do Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configuração do Tailwind para usar a fonte Inter e cores personalizadas -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: 'class', // Adicionado modo escuro
             theme: {
                 extend: {
                     colors: {
+                        // Cores primárias do Flowbite
                         primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"},
+                        // Suas cores personalizadas do IMA
                         'ima-green-dark': '#1E3A24',
                         'ima-green-light': '#4CAF50',
                         'ima-gray': '#F5F5F5',
@@ -21,6 +23,7 @@
                     }
                 },
                 fontFamily: {
+                    // Definições de fonte do Flowbite
                     'body': [
                         'Inter',
                         'ui-sans-serif',
@@ -64,13 +67,13 @@
 </head>
 <body class="font-inter text-ima-text-gray">
 
-    <!-- Cabeçalho (Header) - Mantido igual ao das outras páginas -->
+    <!-- Novo Cabeçalho (Header) - Adaptado do Flowbite e Responsivo -->
     <header>
         <nav class="bg-white border-gray-200 py-2.5 px-10 sm:px-16 lg:px-24">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                 <!-- Logo do IMA -->
-                <a href="index.html" class="flex items-center"> <!-- Link para a página principal -->
-                    <span class="text-ima-green-dark text-3xl font-bold">IMA</span>
+                <a href="index.html" class="flex items-center">
+                    <img src="src/img/IMA-LOGO.png" alt="IMA">
                 </a>
                 
                 <!-- Botão Fale Conosco e Toggle do Menu Mobile -->
@@ -91,20 +94,21 @@
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
-                            <a href="index.html" class="block py-2 pr-4 pl-3 text-ima-text-gray rounded lg:bg-transparent lg:text-ima-text-gray lg:p-0">Home</a>
+                            <a href="index.html" class="block py-2 pr-4 pl-3 text-ima-green-dark rounded lg:bg-transparent lg:text-ima-green-dark lg:p-0" aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="nossa-historia.html" class="block py-2 pr-4 pl-3 text-ima-text-gray rounded lg:bg-transparent lg:text-ima-text-gray lg:p-0">Nossa história</a>
+                            <a href="historia.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Nossa história</a>
                         </li>
                         <li>
-                            <a href="nossa-equipe.html" class="block py-2 pr-4 pl-3 text-ima-text-gray rounded lg:bg-transparent lg:text-ima-text-gray lg:p-0">Nossa Equipe</a>
+                            <a href="time.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Nossa Equipe</a>
                         </li>
                         <li>
-                            <a href="projetos.html" class="block py-2 pr-4 pl-3 text-ima-text-gray rounded lg:bg-transparent lg:text-ima-text-gray lg:p-0">Projetos</a>
+                            <a href="projetos.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Projetos</a>
                         </li>
                         <li>
-                            <a href="formularios.html" class="block py-2 pr-4 pl-3 text-ima-green-dark rounded lg:bg-transparent lg:text-ima-green-dark lg:p-0" aria-current="page">Formulários</a>
+                            <a href="formularios.html" class="block py-2 pr-4 pl-3 text-ima-text-gray border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-ima-green-dark lg:p-0">Formulários</a>
                         </li>
+                        <!-- Botão Fale Conosco para o menu mobile (visível apenas em telas menores) -->
                         <li>
                             <button class="bg-ima-green-light text-white px-6 py-2 rounded-md font-semibold hover:bg-ima-green-dark transition-colors duration-200 shadow-md mt-4 lg:hidden w-full">Fale Conosco</button>
                         </li>
